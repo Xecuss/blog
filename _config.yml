@@ -103,4 +103,9 @@ theme: fluid
 # Deployment
 ## Docs: https://hexo.io/docs/one-command-deployment
 deploy:
-  type: ''
+  type: 'rsync'
+  host: 'wind'
+  user: 'root'
+  delete: true
+  verbose: true
+  root: '/home/kaiser/v2www'
