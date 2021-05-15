@@ -39,4 +39,9 @@ write_cron_job
 ```
 查看其定义可以看到它使用cru命令添加了三个定时任务：
 ```shell
+write_cron_job() {
+  cru a "${appname}"_rule "20 5 * * * ${mbroot}/apps/${appname}/scripts/ss_rule_update.sh"
+  cru a "${appname}"_online "0 */6 * * * ${mbroot}/apps/${appname}/scripts/ss_online_update.sh"
+  cru a "${appname}" "0 6 * * * ${mbroot}/apps/${appname}/scripts/${appname}.sh restart"
+}
 ```
