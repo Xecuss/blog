@@ -7,6 +7,8 @@ tags: ['网络', 'Linux']
 
 笔者最近就在AX1800上部署了射线2，这个过程中碰到一些坑。由于笔者既不是计算机专业出身，也没学过嵌入式开发，甚至仅有的一点C语言快要还给老师了，所以在解决这些坑的过程中走了不少弯路。因此将过程记录于此，希望能帮助到有需要的朋友。
 
+> ps: 对解决过程不感兴趣的朋友请直接跳转到最后的[解决方法](#总结-解决方法)
+
 ## 安装过程
 
 安装过程这里就不再多提了，按照《[0成本实现远程开机](/2021/02/09/0成本实现远程开机/)》里提到的，你的AX1800需要开启SSH并安装MIXBOX，然后可以直接通过MIXBOX安装阴影袜子，这个MIXBOX里安装的阴影袜子里面自带了射线2，只需要添加配置的时候选择射线2的配置即可。
@@ -16,7 +18,7 @@ tags: ['网络', 'Linux']
 ### etc分区太小
 一上来首先碰到的问题是etc分区空间不够，AX1800的etc分区只有11+ M，安装时会出现```No space left on device```的错误。于是使用```df -h```命令查看了一下剩余空间。重新安装MIXBOX，将其转移到/tmp分区，随后就能顺利安装了。
 
-> ps: 经笔者学嵌入式的朋友告知，这个/tmp分区应该是个临时分区，重启后内容就会消失，目前还没有重启，并不知道会不会消失
+> ps: 经笔者学嵌入式的朋友提醒，这个/tmp分区该是个临时分区，重启后内容就会消失
 
 ### 启用插件后其状态仍然为未启动
 在启用插件之后可以看到其状态仍然为未启动，但是实际上笔者验证射线2的进程已经在运行，iptables的规则也已经生效，所以一开始并没有关注这里，认为这只是个无关紧要的小问题。
@@ -119,7 +121,7 @@ status() {
 笔者首先尝试了一下[小米路由器插件开发文档](https://dev.mi.com/docs/routerplugin/user_guide/)里的交叉编译toolchain，然而编译出来并不能使用，使用readelf可以发现，这个结果里需要的lib在路由器里并没有，应该是toolchain的问题。
 ![并不包含该动态链接库](toolchain1.jpg)
 
-小米官方似乎并没有提供AX1800的相关toolchain。不过联想到小米路由器的固件是基于OpenWrt的，通过```cat /etc/*release```可以看到，AX1800的路由器是基于OpenWRT 18.06的，笔者便去OpenWRT官网下载OpenWRT 18.06的toolchain。官网上并没有ipq60xx的toolchain，最后选择了指令集相同的ipq40xx的toolchain。
+小米官方似乎并没有提供AX1800的相关toolchain。不过通过```cat /etc/*release```可以看到，AX1800的路由器固件是基于OpenWRT18.06的，笔者便去OpenWRT官网下载OpenWRT 18.06的toolchain。官网上并没有ipq60xx的toolchain，最后选择了指令集相同的ipq40xx的toolchain。
 
 交叉编译的过程不再赘述，编译好之后readelf，看到了确实存在于AX1800的动态链接库。上传，尝试运行
 ![运行dns2socks](dns2socks.png)
@@ -140,15 +142,10 @@ ln -s /tmp/mbtmp/功夫王列表.conf /etc/dnsmasq.d/功夫王列表_ipset.conf
 至此，禁止名单模式终于能够正常使用了。
 
 ## 总结 解决方法
-1. 上传并替换 ```${安装位置}/mixbox/apps/${插件名}/bin/dns2socks```为这个[重新编译的版本](https://pan.baidu.com/s/1T-EcKNfENsQJtpkMUitf0w)，提取码：hz9x。（仅适用于AX1800，其他路由器请勿尝试）
-2. 使用MIXBOX重启插件
-3. 创建软链，请根据实际情况修改你需要创建的软链：
-```shell
-ln -s /tmp/mbtmp/wblist.conf /etc/dnsmasq.d/wblist.conf
-ln -s /tmp/mbtmp/功夫王列表.conf /etc/dnsmasq.d/功夫王列表_ipset.conf
-```
->ps：请关闭后记得删掉软链并重启dnsmasq，否则会无法上网，最好是直接修改原脚本，把其中的/tmp/etc/dnsmasq.d全替换成/etc/dnsmasq.d
-4. 重启dnsmasq
-```shell
-/etc/init.d/dnsmasq restart
-```
+1. 使用MIXBOX停用正在运行的阴影袜子插件
+2. 下载[需要的文件](https://1drv.ms/u/s!AoGA8iOeRdabk-80RCGoMOcx3JhL3A?e=CTIKV3)并解压，密码: XROSS THE XOUL
+3. 上传并替换 ```${安装位置}/mixbox/apps/${插件名}/bin/dns2socks```为这个下载文件里的dns2socks（仅适用于AX1800，其他路由器请勿尝试），替换后使用```chmod 777 dns2socks```修改其权限
+4. 上传并替换 ```${安装位置}/mixbox/apps/${插件名}/scripts/${插件名}.sh```为这个下载文件里的版本（仅适用于AX1800，其他路由器请勿尝试）
+5. 使用MIXBOX重新启用阴影袜子插件
+
+注意：射线2插件占用空间较大，所以只能安装在/tmp下，这就导致了每次重启后之前安装的东西会消失，需要重新配置。
