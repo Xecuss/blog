@@ -1,7 +1,7 @@
 ---
 title: ES6 Proxy 详解
 date: 2021-07-11 01:01:06
-tags:
+tags: ['code', 'ECMAScript']
 ---
 Vuejs是一个非常好用的前端框架，它最大的特征就是「响应式」。即将模型和视图绑定起来，只需要直接修改模型的值，视图会自动更新。为了实现这一个特征，首先需要的就是能监听目标的变化。而我们都知道，在vue2和vue3中的响应式实现是不一样的，vue2中使用的是getter/setter，而vue3中使用的则是ES6的一个新对象——Proxy。那么Proxy相对于getter/setter有哪些优点呢？今天我们就来聊聊这个ES6的Proxy。
 
@@ -82,7 +82,7 @@ new 操作符的捕捉器。
 
 ## 使用Proxy的实例
 
-### 对于目标的所有修改都进行记录
+### 对于目标的所有操作进行记录
 首先是一个简单的例子，我们现在对于一个对象建立一个日志功能，每次对对象进行操作的时候就输出当前操作类型和结果。那么很容易就能写出以下代码：
 ```typescript
 const p = new Proxy(target, {
@@ -130,5 +130,145 @@ const proxyLogger = (target) => {
         }, Object.create(null));
 
     return new Proxy(target, handler);
+}
+```
+
+### 防止子引用出错
+
+在实际开发中，有时候一个对象的结果可能很在很深的层级，比如这样去引用结果中的一个字段：
+```typescript
+const res = res.data.list[0].title;
+```
+然而这种操作其实是非常危险的，其中任何一个属性没有就会导致报错，然后之后的操作就无从进行了。而且对于这么长的引用做检查也是一件很麻烦的事情。当然，我们可以使用ES2020中的新特性：可选链来进行这个判断，就像这样：
+```typescript
+const res = res?.data?.list?.[0]?.title;
+```
+这样如果中间的某个值为null，整个结果会变成null而不会阻塞接下来的代码。不过可选链毕竟是一个相当新的特性，实际上我们使用Proxy也可以达到类似的效果。我们可以写这样一个Proxy，当访问这个Proxy目标上不存在的对象时，它会生成一个警告并返回一个和它一样的Proxy，这样无论我们引用多少层，操作都会被Proxy所捕获而不会出错。
+```typescript
+const propertyErrorhandle = (target) => {
+    const handler = {
+        get(target, prop, receiver) {
+            if(target[prop] !== undefined) {
+                return target[prop];
+            }
+            else {
+                console.warn(`warn: read undefined property ${prop}`);
+                return new Proxy(Object.create(null), handler);
+            }
+        }
+    }
+
+    return new Proxy(target, handler);
+}
+```
+试用一下：
+```typescript
+const a = propertyErrorhandle({});
+
+console.log(a.data.list[0]);
+console.log('Hello World');
+```
+![](proxy-prop.jpg)
+
+### 伪数组
+伪数组指一个元素，它看起来像个数组，用起来像个数组，但是实际上不是数组（这是我自己定义的）。由于Proxy能对未定义的属性也能生效的特性，所以非常适合用来实现一个伪数组。
+
+笔者今天介绍的一种伪数组，叫做位数组（BitArray），什么是位数组呢？我们把一个整数转换成二进制，将他的每一位看成是一个true/false，那么一个32位的无符号整型变量就可以当成一个长度为32的Boolean数组来使用。
+
+BitArray非常适合用来存储很多的true/false值，在存储同类型的多选选项时非常节省空间。
+
+我们希望能构建一个BitArray类，它可以这样来使用：
+```typescript
+const bitArray = new BitArray();
+//将第四位设置为1
+bitArray[3] = true;
+
+console.log(bitArray[3]);
+//此时值为(2)1000 === 8
+console.log(bitArray.value);
+```
+使用new来实例化一个BitArray，并且既可以当成数组使用，也可以获得它的实际值来方便之后方便上传到数据库。
+
+既然要用new来实例化，那么就要用到construct trap了：
+```typescript
+const BitArray = new Proxy(function(){ }, {
+    construct(target, args, newTarget) {
+        let data = {
+            value: 0
+        };
+        const handler = {};
+        return new Proxy(data, handler);
+    }
+});
+```
+这样我们实例化之后就能得到一个Proxy对象。
+> P.S 其实不使用Proxy也能通过new得到一个Proxy对象，即在class的constructor里直接返回一个Proxy，但是笔者感觉这样写容易造成一些困惑，所以这里选择了使用Proxy的写法。
+
+get trap是比较好写的，如果prop是一个数字，则返回对应的位上的值，这个操作可以通过移位运算和掩码1来实现，需要第几位的值就右移几位，然后和1位与；如果prop不是数字，则返回对应的原始值，代码如下：
+```typescript
+const handler = {
+    get: (target, prop, receiver) => {
+        let offset = Number(prop);
+        if(isNaN(offset)){
+            return target[prop];
+        }
+        else{
+            return Boolean((target.value >> offset) & 1);
+        }
+    }
+};
+```
+
+set trap的写法就要稍微复杂一点，将某一位offset置为1和置为0的方法是不一样的。先看置为1的情况，要将某一位置为1，也就是无论这一位原来是什么值，执行这个操作之后都一定会变为1。能满足这个需要的就是位或操作了。我们需要将这一位和1进行位或，这样无论原来的值是什么，最后这一位都会变成1。至于别的位置，和0位或就可以得到原来的值。所以我们让1左移offset位，就能构造出满足需要的二进制串了。
+
+再看置为0的情况，类似的，如果要将某一位置为0，我们需要无论它是什么值最后都会变成0。能满足这个需要的就是位与操作。将这一位和0进行位与，其它位置和1进行位与，这样就能达成目标。所以我们先让1左移offset位，然后进行按位取反，就能构造出满足需要的二进制串了。
+
+最后我们可以得到这样的set：
+```typescript
+const handler = {
+    set: (target, prop, value, receiver) => {
+        let offset = Number(prop);
+        if(isNaN(offset)){
+            throw new Error('禁止设置属性');
+        }
+        else{
+            let trueValue = Boolean(value);
+            if(trueValue){
+                target.value |= (1 << offset);
+            }
+            else{
+                target.value &= ~(1 << offset);
+            }
+            return true;
+        }
+    }
+};
+```
+完整的代码就不贴出来了，占地方，根据上面几个拼一下就好。
+
+最后运行之前的代码：
+![](bitArray1.jpg)
+
+当然你也可以根据喜好给这个BitArray附加更多的数组属性，比如我加上了迭代器，让它可以支持for...of操作：
+```typescript
+const handler = {
+    get: (target, prop, receiver) => {
+        if(prop === Symbol.iterator) {
+            return function* (){
+                let i = 0;
+                for(i = 0; i < 32; i++){
+                    yield this[i];
+                }
+                return;
+            };
+        }
+        let offset = Number(prop);
+        if(isNaN(offset)){
+            return target[prop];
+        }
+        else{
+            return Boolean((target.value >> offset) & 1);
+        }
+    }
 }
 ```
