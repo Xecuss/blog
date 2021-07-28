@@ -63,6 +63,6 @@ Object.prototype.toString.call(bitArray)
 >     c. Return IsArray(target).
 > 4. Return false.
 
-简单来说就是，如果用于判断的目标对象是一个Proxy的话，会先拿到内部槽[[ProxyTarget]]，然后对[[ProxyTarget]]调用Array.isArray作为结果。
+简单来说就是：抽象方法IsArray，如果用于判断的目标对象是一个Proxy的话，会先拿到其内部槽[[ProxyTarget]]，然后对[[ProxyTarget]]调用IsArray作为结果。
 
 由于其操作是通过内部槽进行的，所以我们的基本操作是无法拦截到这个操作的，而我们的[[ProxyTarget]]是一个对象，所以结果就会返回false了。
