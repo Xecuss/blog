@@ -34,7 +34,7 @@ SOUND VOLTEX EXCEED GEAR コナステ是KONAMI继SOUND VOLTEX III GRAVITY WARS �
 
 月费为每月1628 JPY，每月第一天扣除。折合人民币大约是90 CNY左右，只交月费可以游玩基础版，基础版本包含600+左右的曲子，除此之外还有几十首放在家用版的Blaster Gate中，可以通过游玩解锁。
 
-注意，默认情况下基础版本里没有任何Lv20的曲子，但是确实有一首Lv20放在了[活动里](https://p.eagate.573.jp/game/eacsdvx/vi/news/index.html#news220103_01)，该活动目前复刻中，预计今年（2022年）5月份开通月费会员即可免费赠送。
+注意，默认情况下基础版本里没有任何Lv20的曲子，但是确实有一首Lv20放在了[活动里](https://p.eagate.573.jp/game/eacsdvx/vi/news/index.html#news220103_01)，该活动目前复刻中，预计今年（2022年）5月份开通月费会员即可免费获取。
 
 曲包的价格一般为3036 JPY（15首）或者6091JPY（30首），也有一些曲子比较少的曲包，价格也相应低一些。基本上平均下来202 JPY/首，折算成人民币大概是11 CNY/首，比一般移动端的音游要贵一些。
 
@@ -114,6 +114,30 @@ SOUND VOLTEX EXCEED GEAR コナステ是KONAMI继SOUND VOLTEX III GRAVITY WARS �
 ![](install10.jpg)
 8. 下载速度根据你的网络情况决定，不过一般都不会很快。如果你希望跳过大部分下载过程的话，可以参见后面的使用离线资源文件部分。
 ![](install11.jpg)
+
+## 使用离线资源文件加速下载
+1. 首先点击「CANCEL」退出游戏
+![](accelerate.jpg)
+![](accelerate2.jpg)
+2. 然后下载离线资源文件，并使用任意解压缩工具解压到你能找得到的位置。将会得到以下的文件目录。
+![](accelerate3.jpg)
+3. 将文件中的game和resources文件夹复制并覆盖到之前安装时选择的游戏安装目录。
+4. 然后重复安装游戏的第4-8步，此次仍然会走一个进度，不过大部分只是校验文件，应该非常快。
+![](accelerate4.jpg)
+5. 下载完成，在这里我们勾选上「ランチャーを起動する」,然后点击「CLOSE」
+![](accelerate5.jpg)
+
+## 进入游戏
+1. 进入启动器主界面
+![](start.jpg)
+2. 首先进入设置，按需要更改你的设置。注意较新的手台一般都有EAC模式，可以无需更改按键设置直接使用，详情请查阅手台说明书或者咨询你的手台制造商。如果不支持这个模式，则需要通过Mouse2Key工具将鼠标信号转换为按键，并在设置中更改键位。
+![](start2.jpg)
+![](start3.jpg)
+![](start4.jpg)
+
+
+----
+未完待续
 
 ## 参考
 [^1]: [SOUND VOLTEX - 萌娘百科 万物皆可萌的百科全书](https://zh.moegirl.org.cn/SOUND_VOLTEX#%E5%85%B3%E4%BA%8EPC%E7%89%88)
