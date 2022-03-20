@@ -134,8 +134,28 @@ SOUND VOLTEX EXCEED GEAR コナステ是KONAMI继SOUND VOLTEX III GRAVITY WARS �
 ![](start2.jpg)
 ![](start3.jpg)
 ![](start4.jpg)
+3. 设置修改完成后，点击中间的「Game Start」启动游戏，进入游戏按Start键开始。请观察游戏是否能正常运行和游玩，确定可以游玩之后再进行下一步。
 
+## 氪金
+**请确定游戏能正常运行和游玩之后再进行！**
 
+**请确定游戏能正常运行和游玩之后再进行！**
+
+**请确定游戏能正常运行和游玩之后再进行！**
+
+在开始之前还是再多提一句，月费**每月1号扣除**，换句话说，就算今天31号你交了月费，明天1号就已经算第二个月了，等于交了月费只能玩1天。所以最好是月初再进行氪金。
+
+1.  打开[充值页（https://paseli.konami.net/charge/top.html）](https://paseli.konami.net/charge/top.html)，注意这个页面中的必要资源由于使用了googleapis的CDN服务，在国内可能无法加载，此时将会卡在接下来的第二步。可以使用国内镜像来解决这个问题，具体请参考[这篇文章](https://www.cnblogs.com/jackadam/p/11258463.html)，或者也可以直接炼金术上网。
+2. 点击「チャージ方法を選択してください」，然后选择一种支付方式。国内的朋友可以选择BitCash，直接去万能的X宝购买充值卡即可充值。
+![](charge.jpg)
+3. 选择要充值的金额，然后点击「PASELI利用規約および  個人情報等保護方針に同意して チャージする」
+![](charge2.jpg)
+4. 将卖家给你的BitCash的16位假名ID复制到输入框中，然后点击「次へ」
+![](charge3.jpg)
+5. 确认信息，然后点击「决定」
+![](charge4.jpg)
+6. 充值完成
+![](charge5.jpg)
 ----
 未完待续
 
