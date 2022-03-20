@@ -5,6 +5,8 @@ tags: ['音游', 'SDVX']
 ---
 ## 入坑之前
 
+这部分是关于家用版的一些介绍，包括其简介、优劣和价格等。如果你比较富有且十分肯定自己要入坑家用版，可以直接跳到[「注册账号」](#注册账号)部分。
+
 ### 什么是什么是コナステ版 SOUND VOLTEX EXCEED GEAR
 SOUND VOLTEX III GRAVITY WARS コナステ是KONAMI推出的在电脑上运行的SDVX。原名为SOUND VOLTEX III GRAVITY WARS e-AMUSEMENT CLOUD，2018年9月5日起更名为コナステ。
 
@@ -46,7 +48,7 @@ SOUND VOLTEX EXCEED GEAR コナステ是KONAMI继SOUND VOLTEX III GRAVITY WARS �
 
 * 月费**每月1号扣除**，换句话说，就算今天31号你交了月费，明天1号就已经算第二个月了，等于交了月费只能玩1天
 * 目前家用版只有游玩和考段两个模式，游玩是不限时的PF模式，支持快速重开。考段的段位曲和街机版并不一致，并且最高只能考到后光刚力罗
-* 每个月会给当月有会员的玩家赠送若干曲子。那之前赠送的曲子岂不是就绝版了？于是KONAMI现在每月会给Blaster Gate中添加一些之前赠送的曲子
+* 每个月会给当月有会员的玩家赠送若干曲子。之前赠送的曲子本来没有办法获取，但是KONAMI现在每月会给Blaster Gate中添加一些之前赠送的曲子
 * Blaster Gate： to do，大概之后会补充
 
 ## 注册账号
@@ -68,7 +70,7 @@ SOUND VOLTEX EXCEED GEAR コナステ是KONAMI继SOUND VOLTEX III GRAVITY WARS �
 10. 随后会跳转到个人页，账号注册成功
 ![](registerf.jpg)
 
-接下来如果你手上有实体e-amusement pass（下简称epass）/aime卡，请跳到使用实体epass/aime卡。如果你没有实体epass/aime卡，请接着往下阅读。
+接下来如果你手上有实体e-amusement pass（下简称epass）/aime卡，请跳到[使用实体epass/aime卡](#使用实体epassaime卡)。如果你没有实体epass/aime卡，请接着往下阅读。
 
 ## 生成虚拟e-amusement pass
 1. 在个人页点击「e-amusement pass管理」。
@@ -121,8 +123,8 @@ SOUND VOLTEX EXCEED GEAR コナステ是KONAMI继SOUND VOLTEX III GRAVITY WARS �
 ![](accelerate2.jpg)
 2. 然后下载离线资源文件，并使用任意解压缩工具解压到你能找得到的位置。将会得到以下的文件目录。
 ![](accelerate3.jpg)
-3. 将文件中的game和resources文件夹复制并覆盖到之前安装时选择的游戏安装目录。
-4. 然后重复安装游戏的第4-8步，此次仍然会走一个进度，不过大部分只是校验文件，应该非常快。
+3. 将文件中的所有文件复制并覆盖到之前安装时选择的游戏安装目录。
+4. 然后重复安装游戏的第4-8步，此次可能仍然会走一个进度，不过大部分只是校验文件，应该非常快。如果离线资源文件较新的话，也有可能直接进入主界面，此时可以直接跳到[进入游戏](#进入游戏)。
 ![](accelerate4.jpg)
 5. 下载完成，在这里我们勾选上「ランチャーを起動する」,然后点击「CLOSE」
 ![](accelerate5.jpg)
@@ -143,7 +145,7 @@ SOUND VOLTEX EXCEED GEAR コナステ是KONAMI继SOUND VOLTEX III GRAVITY WARS �
 
 **请确定游戏能正常运行和游玩之后再进行！**
 
-在开始之前还是再多提一句，月费**每月1号扣除**，换句话说，就算今天31号你交了月费，明天1号就已经算第二个月了，等于交了月费只能玩1天。所以最好是月初再进行氪金。
+注：这里进行的充值是充值PASELI。但是之后开通会员的时候不一定要用PASELI支付，也可以使用受支持的信用卡支付，如果你计划使用信用卡支付，可以跳过这一步。不过由于笔者手上并没有支持的信用卡，所以估计不会有绑卡的教程。
 
 1.  打开[充值页（https://paseli.konami.net/charge/top.html）](https://paseli.konami.net/charge/top.html)，注意这个页面中的必要资源由于使用了googleapis的CDN服务，在国内可能无法加载，此时将会卡在接下来的第二步。可以使用国内镜像来解决这个问题，具体请参考[这篇文章](https://www.cnblogs.com/jackadam/p/11258463.html)，或者也可以直接炼金术上网。
 2. 点击「チャージ方法を選択してください」，然后选择一种支付方式。国内的朋友可以选择BitCash，直接去万能的X宝购买充值卡即可充值。
@@ -156,8 +158,21 @@ SOUND VOLTEX EXCEED GEAR コナステ是KONAMI继SOUND VOLTEX III GRAVITY WARS �
 ![](charge4.jpg)
 6. 充值完成
 ![](charge5.jpg)
-----
-未完待续
+
+## 加入月费会员
+
+在开始之前还是再多提一句，月费**每月1号扣除**，换句话说，就算今天31号你交了月费，明天1号就已经算第二个月了，等于交了月费只能玩1天。所以最好是月初再加入会员。
+1. 前往[会员加入页（https://p.eagate.573.jp/payment/p/select_course.html?course=eac_sdvx_basic）](https://p.eagate.573.jp/payment/p/select_course.html?course=eac_sdvx_basic)。或者你也可以从[首页](https://p.eagate.573.jp/payment/p/select_course.html?course=eac_sdvx_basic)进入，点击右上角的三条横杠打开菜单，选择「コース加入」，在新跳转到的的网页中点击「SOUND VOLTEX(コナステ) ベーシックコース」。
+2. 点击「了承する」
+![](course.jpg)
+3. 选择支付方式，如果之前是按照上一步充值了PASELI的话，这里选择「PASELI 1,628円/月(税込)」。如果选择信用卡支付的话选择「クレジットカード 1,628円/月(税込)」。然后点击「次 へ」。
+![](course2.jpg)
+4. 随后会跳转到确认页，需要输入登录密码和点击「確定する」。这里借用一下bemanistyle的图。
+![输入登录密码[^2]](course4.png)
+5. 随后看到类似这样的页面即代表加入成功。
+![加入成功[^2]](course5.png)
+6. 随后重新进入游戏，已经能体验到一个基本完整的家用版体验了。
 
 ## 参考
 [^1]: [SOUND VOLTEX - 萌娘百科 万物皆可萌的百科全书](https://zh.moegirl.org.cn/SOUND_VOLTEX#%E5%85%B3%E4%BA%8EPC%E7%89%88)
+[^2]: [e-amusement How to: Charging PASELI and Basic Course Subscription – OTAQUEST](https://www.otaquest.com/e-amusement-how-to-charging-paseli-and-basic-course-subscription/)
