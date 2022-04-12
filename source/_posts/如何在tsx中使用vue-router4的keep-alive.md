@@ -1,7 +1,11 @@
 ---
 title: 如何在tsx中使用vue-router4的keep-alive
+tags:
+  - code
+  - vue
+  - typescript
+abbrlink: 53167
 date: 2021-03-21 21:09:04
-tags: ["code", "vue", "typescript"]
 ---
 vue3已经发布了有一段日子了，作为一个坚定的typescript使用者，我早已对vue3大大优化的ts支持垂涎三尺了，也已经用vue3做了一些个人小项目了。由于希望在模板中也能享受智能语法提示和类型检查，那传统的.vue形式的单文件组件就满足不了我的需求了，必须使用tsx的方案，然而在使用tsx的时候碰到了不少的坑，这次这个就是其中之一。
 

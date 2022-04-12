@@ -105,3 +105,5 @@ dist
 
 public
 db.json
+
+_config.fluid.yml

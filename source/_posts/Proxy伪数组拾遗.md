@@ -1,7 +1,10 @@
 ---
 title: Proxy伪数组拾遗
+tags:
+  - code
+  - ECMAScript
+abbrlink: 15908
 date: 2021-07-27 10:21:25
-tags: ['code', 'ECMAScript']
 ---
 在上一篇文章中，我们介绍了使用Proxy来实现一个伪数组，这篇文章是对于上一篇文章的一些补充。
 

@@ -1,7 +1,10 @@
 ---
 title: コナステ版 SOUND VOLTEX EXCEED GEAR （官弟弟）入坑指南
+tags:
+  - 音游
+  - SDVX
+abbrlink: 8310
 date: 2022-03-11 22:29:22
-tags: ['音游', 'SDVX']
 ---
 ## 入坑之前
 

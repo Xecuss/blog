@@ -1,7 +1,10 @@
 ---
 title: ES6 Proxy 详解
+tags:
+  - code
+  - ECMAScript
+abbrlink: 46149
 date: 2021-07-11 01:01:06
-tags: ['code', 'ECMAScript']
 ---
 Vuejs是一个非常好用的前端框架，它最大的特征就是「响应式」。即将模型和视图绑定起来，只需要直接修改模型的值，视图会自动更新。为了实现这一个特征，首先需要的就是能监听目标的变化。而我们都知道，在vue2和vue3中的响应式实现是不一样的，vue2中使用的是getter/setter，而vue3中使用的则是ES6的一个新对象——Proxy。那么Proxy相对于getter/setter有哪些优点呢？今天我们就来聊聊这个ES6的Proxy。
 
