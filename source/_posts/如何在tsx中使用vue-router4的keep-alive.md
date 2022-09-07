@@ -51,13 +51,14 @@ return <KeepAlive>
 >     },
 > };
 > ```
+
 乍一看好像写法非常奇怪，其实想一下之前那句话就知道了：**写tsx的本质其实是在写渲染函数**；而所谓的插槽slots，其实也不过就是props上的一个属性而已，**插槽的本质其实也是一个渲染函数**，我们在模板中写```v-slot=" slotValue"```时，实际上就是写了一个参数为slotValue的渲染函数。
 
 那这里的处理也就很明确了，router-view里的默认slot里是一个参数，然后这个参数带有一个Component属性。我们可以得到这样的一个渲染函数，我这里使用了另一种插槽的写法：
 ```tsx
 return <RouterView>
     {{
-        default: ({Component}: { Component: () => JSX.Element }) => {
+        default: ({Component}: { Component: VNode }) => {
             return <KeepAlive>
                 <Component />
             </KeepAlive>
