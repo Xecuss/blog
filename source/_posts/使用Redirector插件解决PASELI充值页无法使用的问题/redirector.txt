@@ -1,0 +1,22 @@
+{
+    "createdBy": "Redirector v3.2.1",
+    "createdAt": "2019-07-28T03:51:41.863Z",
+    "redirects": [
+        {
+            "description": "Ajax",
+            "exampleUrl": "http://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js",
+            "exampleResult": "http://ajax.lug.ustc.edu.cn/ajax/libs/jquery/1.7.1/jquery.min.js",
+            "error": null,
+            "includePattern": "*ajax.googleapis.com*",
+            "excludePattern": "",
+            "patternDesc": "",
+            "redirectUrl": "$1ajax.lug.ustc.edu.cn$2",
+            "patternType": "W",
+            "processMatches": "noProcessing",
+            "disabled": false,
+            "appliesTo": [
+                "script"
+            ]
+        }
+    ]
+}
