@@ -32,7 +32,7 @@ tags:
 然后插件就会安装到浏览器。
 
 ### 配置Redirector插件
-1. 首先<a href="redirector.txt" download target="_blank">点此下载</a>配置文件[^1]，把它放在你能找到的位置。如果你的浏览器打开了这个文件而不是下载，请在链接上单击右键，然后选择链接另存为
+1. 首先<a href="/public/redirector.txt" download target="_blank">点此下载</a>配置文件[^1]，把它放在你能找到的位置。如果你的浏览器打开了这个文件而不是下载，请在链接上单击右键，然后选择链接另存为
 2. 以Edge为例，Edge安装插件后可能会折叠起来，所以先点开插件列表然后点击插件
 ![](setAddon1.png)
 3. 然后会弹出菜单，点击「Edit Redirects」进行配置
