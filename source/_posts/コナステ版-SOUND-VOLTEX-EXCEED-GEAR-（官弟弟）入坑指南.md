@@ -3,7 +3,7 @@ title: コナステ版 SOUND VOLTEX EXCEED GEAR （官弟弟）入坑指南
 tags:
   - 音游
   - SDVX
-abbrlink: 8310
+abbrlink: eacsdvx
 date: 2022-03-11 22:29:22
 ---
 ## 入坑之前
@@ -29,7 +29,7 @@ SOUND VOLTEX EXCEED GEAR コナステ是KONAMI继SOUND VOLTEX III GRAVITY WARS �
 #### 缺点
 1. 价格较高，具体参见后面的价格部分
 2. 乐曲不全，缺少所有的版权曲，有一些非版权曲也可能暂时还没上或者是出现在之前的活动中目前暂时没有办法获取
-3. volforce和段位不互通，同时段位和街机版不一致
+3. volforce和段位不互通，同时段位和街机版不一致~~并且最高只能考到后光剛力羅~~ (更新：2022年6月更新之后，购买曲包「コナステ版SOUND VOLTEX楽曲パックvol.17」以后即可解锁或帝滅斗和暴龍天段位，从此家用版也能考或帝和暴龙了)
 4. 领航员不全，同时家用版没有抽卡功能，需要去街机版抽
 5. 带实体奖品的活动仅限居住在日本境内的玩家，所以需要有渠道收货
 
@@ -150,7 +150,7 @@ SOUND VOLTEX EXCEED GEAR コナステ是KONAMI继SOUND VOLTEX III GRAVITY WARS �
 
 注：这里进行的充值是充值PASELI。但是之后开通会员的时候不一定要用PASELI支付，也可以使用受支持的信用卡支付，如果你计划使用信用卡支付，可以跳过这一步。不过由于笔者手上并没有支持的信用卡，所以估计不会有绑卡的教程。
 
-1.  打开[充值页（https://paseli.konami.net/charge/top.html）](https://paseli.konami.net/charge/top.html)，注意这个页面中的必要资源由于使用了googleapis的CDN服务，在国内可能无法加载，此时将会卡在接下来的第二步。可以使用国内镜像来解决这个问题，具体请参考[这篇文章](https://www.cnblogs.com/jackadam/p/11258463.html)，或者也可以直接炼金术上网。
+1.  打开[充值页（https://paseli.konami.net/charge/top.html）](https://paseli.konami.net/charge/top.html)，注意这个页面中的必要资源由于使用了googleapis的CDN服务，在国内可能无法加载，此时将会卡在接下来的第二步。可以使用国内镜像来解决这个问题，具体请参考{% post_link 使用Redirector插件解决PASELI充值页无法使用的问题 这个教程 %}；或者也可以直接炼金术上网。
 2. 点击「チャージ方法を選択してください」，然后选择一种支付方式。国内的朋友可以选择BitCash，直接去万能的X宝购买充值卡即可充值。
 ![](charge.jpg)
 3. 选择要充值的金额，然后点击「PASELI利用規約および  個人情報等保護方針に同意して チャージする」
@@ -170,12 +170,11 @@ SOUND VOLTEX EXCEED GEAR コナステ是KONAMI继SOUND VOLTEX III GRAVITY WARS �
 ![](course.jpg)
 3. 选择支付方式，如果之前是按照上一步充值了PASELI的话，这里选择「PASELI 1,628円/月(税込)」。如果选择信用卡支付的话选择「クレジットカード 1,628円/月(税込)」。然后点击「次 へ」。
 ![](course2.jpg)
-4. 随后会跳转到确认页，需要输入登录密码和点击「確定する」。这里借用一下bemanistyle的图。
-![输入登录密码[^2]](course4.png)
+4. 随后会跳转到确认页，需要输入登录密码和点击「確定する」。
+![输入登录密码](course4.jpg)
 5. 随后看到类似这样的页面即代表加入成功。
-![加入成功[^2]](course5.png)
+![加入成功](course5.jpg)
 6. 随后重新进入游戏，已经能体验到一个基本完整的家用版体验了。
 
 ## 参考
 [^1]: [SOUND VOLTEX - 萌娘百科 万物皆可萌的百科全书](https://zh.moegirl.org.cn/SOUND_VOLTEX#%E5%85%B3%E4%BA%8EPC%E7%89%88)
-[^2]: [e-amusement How to: Charging PASELI and Basic Course Subscription – OTAQUEST](https://www.otaquest.com/e-amusement-how-to-charging-paseli-and-basic-course-subscription/)
