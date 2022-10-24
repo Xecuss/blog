@@ -37,7 +37,7 @@ SOUND VOLTEX EXCEED GEAR コナステ是KONAMI继SOUND VOLTEX III GRAVITY WARS �
 
 采用月费+曲包制。
 
-月费为每月1628 JPY，每月第一天扣除。折合人民币大约是90 CNY左右，只交月费可以游玩基础版，基础版本包含600+左右的曲子，除此之外还有几十首放在家用版的Blaster Gate中，可以通过游玩解锁。
+月费为每月1628 JPY，每月第一天扣除。折合人民币大约是80 CNY左右，只交月费可以游玩基础版，基础版本包含600+左右的曲子，除此之外还有几十首放在家用版的Blaster Gate中，可以通过游玩解锁。
 
 注意，默认情况下基础版本里没有任何Lv20的曲子，但是确实有一首Lv20放在了[活动里](https://p.eagate.573.jp/game/eacsdvx/vi/news/index.html#news220103_01)，该活动目前复刻中，预计今年（2022年）5月份开通月费会员即可免费获取。
 
@@ -49,8 +49,8 @@ SOUND VOLTEX EXCEED GEAR コナステ是KONAMI继SOUND VOLTEX III GRAVITY WARS �
 
 ### 其他需要注意的部分
 
-* 月费**每月1号扣除**，换句话说，就算今天31号你交了月费，明天1号就已经算第二个月了，等于交了月费只能玩1天
-* 目前家用版只有游玩和考段两个模式，游玩是不限时的PF模式，支持快速重开。考段的段位曲和街机版并不一致，并且最高只能考到后光刚力罗
+* ~~月费**每月1号扣除**，换句话说，就算今天31号你交了月费，明天1号就已经算第二个月了，等于交了月费只能玩1天~~ （更新：2022年10月14日之后，KONAMI修改了收费方式，现在月费已经改为正常的扣费方式了，具体可以参见[这个链接](https://p.eagate.573.jp/gate/p/site_info.html?mid=20221014)）
+* 目前家用版只有游玩和考段两个模式，游玩是不限时的PF模式，支持快速重开。考段的段位曲和街机版并不一致，~~并且最高只能考到后光刚力罗~~ （更新：2022年6月更新之后，购买曲包「コナステ版SOUND VOLTEX楽曲パックvol.17」以后即可解锁或帝滅斗和暴龍天段位，从此家用版也能考或帝和暴龙了）
 * 每个月会给当月有会员的玩家赠送若干曲子。之前赠送的曲子本来没有办法获取，但是KONAMI现在每月会给Blaster Gate中添加一些之前赠送的曲子
 * Blaster Gate： to do，大概之后会补充
 
@@ -164,7 +164,6 @@ SOUND VOLTEX EXCEED GEAR コナステ是KONAMI继SOUND VOLTEX III GRAVITY WARS �
 
 ## 加入月费会员
 
-在开始之前还是再多提一句，月费**每月1号扣除**，换句话说，就算今天31号你交了月费，明天1号就已经算第二个月了，等于交了月费只能玩1天。所以最好是月初再加入会员。
 1. 前往[会员加入页（https://p.eagate.573.jp/payment/p/select_course.html?course=eac_sdvx_basic）](https://p.eagate.573.jp/payment/p/select_course.html?course=eac_sdvx_basic)。或者你也可以从[首页](https://p.eagate.573.jp/payment/p/select_course.html?course=eac_sdvx_basic)进入，点击右上角的三条横杠打开菜单，选择「コース加入」，在新跳转到的的网页中点击「SOUND VOLTEX(コナステ) ベーシックコース」。
 2. 点击「了承する」
 ![](course.jpg)
