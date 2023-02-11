@@ -112,10 +112,3 @@ deploy:
   delete: true
   verbose: true
   root: '/home/kaiser/v2www'
-
-- type: 'rsync'
-  host: '45.32.47.85'
-  user: 'root'
-  delete: true
-  verbose: true
-  root: '/root/blog'
