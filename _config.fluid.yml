@@ -513,7 +513,8 @@ post:
       format: "{} 分钟"
       # 每分钟阅读多少字，如果是技术文章，建议降低
       # Words read per minute
-      words: 100
+      awl: 2
+      wpm: 160
 
     # 浏览量计数
     # Number of visits
@@ -610,11 +611,11 @@ post:
   # 评论插件
   # Comment plugin
   comments:
-    enable: false
+    enable: true
     # 指定的插件，需要同时设置对应插件的必要参数
     # The specified plugin needs to set the necessary parameters at the same time
     # Options: utterances | disqus | gitalk | valine | waline | changyan | livere | remark42 | twikoo
-    type: disqus
+    type: gitalk
 
 
 #---------------------------
@@ -654,17 +655,19 @@ disqus:
 # Based on GitHub Issues
 # See: https://github.com/gitalk/gitalk#options
 gitalk:
-  clientID:
-  clientSecret:
-  repo:
-  owner:
-  admin: ['name']
+  clientID: 136f99b035241f16b322
+  clientSecret: a0aa5007f4e4228781d554d1110c87104f539d81
+  repo: blog
+  owner: Xecuss
+  admin: ['Xecuss']
   language: zh-CN
   labels: ['Gitalk']
+  id: decodeURIComponent(location.pathname).slice(1, -1).split('/').pop()
+  proxy: https://cors.xecus.workers.dev/?https://github.com/login/oauth/access_token
   perPage: 10
   pagerDirection: last
   distractionFreeMode: false
-  createIssueManually: true
+  createIssueManually: false
 
 # Valine
 # 基于 LeanCloud
@@ -854,6 +857,12 @@ links:
       image: "https://avatars.githubusercontent.com/u/35161925?v=4"
     }
 
+# 短链配置
+permalink_defaults:
+abbrlink:
+    alg: crc32  # 算法：crc16(default) and crc32
+    rep: hex    # 进制：dec(default) and hex
+permalink: posts/:abbrlink.html
 
 #---------------------------
 # 以下是配置 JS CSS 等静态资源的 URL 前缀，可以自定义成 CDN 地址，
