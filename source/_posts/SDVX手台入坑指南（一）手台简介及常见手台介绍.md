@@ -5,6 +5,7 @@ tags:
   - SDVX
 abbrlink: 24808
 hide: true
+published: false
 date: 2022-10-21 15:51:33
 ---
 众所周知，SOUND VOLTEX是一款街机音游。游玩时主要需要操作的部分是由四个白色的方形按键、两个黑色的长方形以及两个金属旋钮组成。
