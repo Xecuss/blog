@@ -13,7 +13,7 @@ timezone: ''
 
 # URL
 ## If your site is put in a subdirectory, set url as 'http://example.com/child' and root as '/child/'
-url: http://example.com
+url: https://blog.xecus.cc
 root: /
 permalink: posts/:abbrlink.html
 permalink_defaults:
@@ -103,12 +103,12 @@ ignore:
 ## Themes: https://hexo.io/themes/
 theme: fluid
 
-# Deployment
-## Docs: https://hexo.io/docs/one-command-deployment
-deploy:
-- type: 'rsync'
-  host: 'wind'
-  user: 'root'
-  delete: true
-  verbose: true
-  root: '/home/kaiser/v2www'
+sitemap:
+  path: 
+    - sitemap.xml
+    - sitemap.txt
+  template: ./sitemap_template.xml
+  template_txt: ./sitemap_template.txt
+  rel: false
+  tags: true
+  categories: true
