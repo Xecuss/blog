@@ -19,7 +19,7 @@ tags:
 
 其实大学时代，就曾在自己电脑上安装过Ubuntu系统，还进行了一系列的仿mac美化。那时候啥也不懂，主要就是图个新鲜和装逼。
 
-![大学时代美化过的Ubuntu桌面，其实现在也觉得不差（](coding1.webp)
+![大学时代美化过的Ubuntu桌面，其实现在看也不差（](coding1.webp)
 
 然而现在笔者已经过了装逼的年纪，自然更需要实用主义一点，所以笔者明确了自己的需求：
 
@@ -111,7 +111,7 @@ P.S. 甚至在 AppIndicator and KStatusNotifierItem Support 插件的评论区�
 
 这个在此前的[输入法文章](/posts/wayland-input-method.html)中已经提到过，GNOME的mutter合成器不愿意支持text-input-v1，这导致所有的基于Electron的App在Wayland模式启动时都不能输入中文，只能退回X11通过XWayland运行，然而在X11下会遇到双屏不同缩放比时的缩放问题。最后相比于缩放问题还是没有中文输入法更能接受一点，于是选择了没有中文输入法运行。
 
-### 基于证书的IKEv2 VPN无法连接
+### 使用证书的IKEv2 VPN无法连接
 
 笔者经常需要连接到自己家的内网环境去操作内网设备，所以在自己家里搭建了IKEv2的VPN。然而在全新安装的Fedora下，按照教程配置好的VPN居然没办法连接。
 
@@ -121,9 +121,9 @@ P.S. 甚至在 AppIndicator and KStatusNotifierItem Support 插件的评论区�
 
 ### 默认终端的行高不正确
 
-这其实是个[历史悠久老问题](https://gitlab.gnome.org/GNOME/vte/-/issues/347)了，GNOME的默认终端在中日韩文环境下行距会变大，导致powerlevel10k、fastfetch等的显示效果不正确，看起来很别扭。
+这其实是个[历史悠久的老问题](https://gitlab.gnome.org/GNOME/vte/-/issues/347)了，GNOME的默认终端在中日韩文环境下行距会变大，导致powerlevel10k、fastfetch等的显示效果不正确，看起来很别扭。
 
-P.S. 有意思的是，很多Ubuntu用户自己晒的桌面截图里的fastfetch的行高就是有问题的，整个logo都被拉长了
+P.S. 有意思的是，很多使用GNOME的用户自己晒的桌面截图里的fastfetch的行高就是有问题的，整个logo都被拉长了
 
 > VTE 上游的意思是因为 Noto Mono CJK 里有几个特别高的字符，你使用了 fontconfig 的 prepend 最终的 fontset 会导致用 pango_context_get_metrics() 取到的 metrics 会特别大，它作为终端绘制的库必须把方块（bounding box）全涂满，就造成行间距大了。
 > 
@@ -137,5 +137,51 @@ P.S. 有意思的是，很多Ubuntu用户自己晒的桌面截图里的fastfetch
 
 ## Arch Linux
 
+其实Arch Linux的安装和配置过程除了繁琐，本身倒是没有什么很大的难度，一步步按照ArchWiki写的内容来就好了。
+
+后期使用的过程中与其说是ArchLinux的问题变少了，倒不如说是随着之前那么多次的踩坑，有些问题的解决方案已经心知肚明，有些之前没有查到的问题，经过反复的搜索，终于找到了答案。
+
+### 花屏+卡顿
+
+此前在Fedora KDE里碰到的轻微卡顿+局部花屏的问题，其实是[AMD显卡驱动的问题](https://gitlab.freedesktop.org/drm/amd/-/issues/3388)，按照issue中提到的方法，增加了内核参数，虽然电量消耗速度变快，起码问题得到了临时解决。后来不知道哪个内核版本之后，这个问题得到了修复，现在即使是使用Fedora KDE也不会再出现问题。
+
+### 休眠后唤醒黑屏死机
+
+> After "wakeup" the screen is sometimes black, sometimes with clock, sometimes with (not moving) cursor, not reacting to any key, had to hard reboot (with holding power button for 5 secs).
+No messsage in journalctl AFTER wakeup. (no error or suspicious message in journal during suspend)[^2]
+
+这个问题最终查明是网卡导致的，参考[这个链接](https://gitlab.com/-/snippets/3762978)设置了休眠时自动禁用蓝牙后问题就没问题了。
+
+解决了这两个问题之后，日常使用ArchLinux就没有再碰到什么大的问题了。得益于近年来Linux生态的发展以及AUR的存在，我日常较多使用的QQ、微信、VSCode等软件在ArchLinux下基本都能顺利运行。也许或多或少有些小毛病，但总体来说不是很影响使用。
+
+## 总结
+
+用Linux桌面整个就是一个不断折腾的过程。
+
+从一开始的新奇，到后来不断的碰到问题，大量消耗精力解决了一些问题，仍然有一些解决不了的问题，最终达到一个能比较稳定使用的状态。
+
+回望过去，你说Linux的体验好吗，那显然谈不上好，运气不好的话，说不定每天都能碰上新的小毛病。
+
+可是你说Linux的体验很糟糕吗，似乎也不尽然。在达到最后稳定使用的状态之后，笔者感觉体验还蛮好的：
+
+* KDE下的一些小工具例如Ark压缩文件管理工具、Spectacle截图工具等非常的好用
+* KDE的可自定义程度更高，可以调整成自己喜欢的样子
+* 更少的后台服务也让电脑运行更安静和清凉
+* 开发环境相比Windows也更好配置一些
+
+此外，也许是得益于微软在Windows里不断降低的运行效率（例如使用WebApp代替原生App），Linux在其对比下反而显得更加流畅顺滑。
+
+正是这些优点加起来，让笔者最后选择在笔记本上将Linux作为了日常主力系统。所以如果你也：
+
+1. 厌倦了Windows，想要体验一下不同风格的其他操作系统
+2. 有一定折腾水平和查阅资料的能力，能独立自主的解决问题
+3. 电脑硬件不太旧也不太新
+
+那就不妨去试试看吧，也许就打开了新世界的大门呢~
+
+友情提醒：折腾有风险，入坑需谨慎
+
+## 参考
 
 [^1]: [GNOME Terminal 中文环境下行间距变大问题](https://forum.suse.org.cn/t/topic/16150)
+[^2]: [Black screen after resuming from sleep / Newbie Corner / Arch Linux Forums](https://bbs.archlinux.org/viewtopic.php?id=299987&p=2)
