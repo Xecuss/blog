@@ -1,6 +1,7 @@
 ---
 title: コナステ版 SOUND VOLTEX EXCEED GEAR （官弟弟）入坑指南
 tags:
+  - 游戏
   - 音游
   - SDVX
 abbrlink: eacsdvx

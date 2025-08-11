@@ -3,6 +3,7 @@ title: 使用Redirector插件解决PASELI充值页无法使用的问题
 abbrlink: 14319
 date: 2022-09-07 18:13:05
 tags: 
+  - 游戏
   - 音游
   - SDVX
 ---
