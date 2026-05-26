@@ -27,7 +27,7 @@ tags:
 
 这些都可以通过添加内核参数解决，笔者在这里先提供一条直接设置所有内核参数的命令，然后再分步解释：
 ```bash
-sudo grubby --update-kernel=ALL --args="i8042.nopop=1 i8042.dumbkbd=1 xe.force_probe=b081 i915.force_probe=\!b081 xe.enable_psr=1"
+sudo grubby --update-kernel=ALL --args="i8042.dumbkbd=1 xe.force_probe=b081 i915.force_probe=\!b081 xe.enable_psr=1"
 ```
 
 ### 键盘问题
@@ -35,7 +35,7 @@ sudo grubby --update-kernel=ALL --args="i8042.nopop=1 i8042.dumbkbd=1 xe.force_p
 对于键盘问题，我们可以先外接键盘（注：如果没有外接键盘，可以重启电脑，在grub菜单出现的时候按e，然后把内核参数添加上去，这样可以在这次启动使用键盘），然后通过grubby来设置启动参数：
 
 ```bash
-sudo grubby --update-kernel=ALL --args="i8042.nopop=1 i8042.dumbkbd=1"
+sudo grubby --update-kernel=ALL --args="i8042.dumbkbd=1"
 ```
 
 附上gemini 3给出的解释：
@@ -43,12 +43,15 @@ sudo grubby --update-kernel=ALL --args="i8042.nopop=1 i8042.dumbkbd=1"
 > 键盘与触控板相关参数 (i8042 子系统)
 > i8042 是负责处理传统的 PS/2 键盘和鼠标（触控板）的内核模块。即使是现代笔记本，其内置键盘通常也是通过内部模拟这个老式接口来连接的。
 >
-> * i8042.nopnp=1
-> 效果： 告诉内核不要通过 ACPI/PNP（即插即用）机制来检测键盘控制器，而是强制直接扫描传统的 I/O 硬件端口。
-> 作用： 很多新笔记本的 ACPI 表（主板固件的一部分）在 Linux 下存在兼容性问题，导致内核检测不到键盘。加了这个参数可以绕过有缺陷的 ACPI，强制让键盘工作。
 > * i8042.dumbkbd=1
 > 效果： 开启“傻瓜键盘”模式。内核将不会尝试从键盘控制器读取硬件状态，而是直接假定它存在并跳过某些初始化检查。
 > 作用： 解决某些笔记本在启动时键盘控制器卡死，导致开机极其缓慢或者键盘/触控板完全无法响应的问题。
+
+注: 在其他博客中，还提到需要增加```i8042.nopnp=1```参数，但是笔者在Fedora更新到最新内核后发现并不需要这个参数，如果你在添加以上参数之后仍然无法使用键盘，可以再添加上这个参数: 
+
+```bash
+sudo grubby --update-kernel=ALL --args="i8042.nopnp=1"
+```
 
 ### 显示花屏
 
@@ -76,7 +79,7 @@ xe.force_probe=b081 i915.force_probe=\!b081 xe.enable_psr=1
 
 ## 解决声音问题
 
-对于没有声音的问题解决起来比上面两个简单多了，7.0内核已经修复了这个问题，只需要运行```sudo dnf update```更新到最新内核即可，这个问题只在默认的6.x内核上出现。
+对于没有声音的问题解决起来比上面两个简单多了，7.0内核已经修复了这个问题，只需要运行```sudo dnf update```更新到最新内核即可，这个问题只在Fedora44默认的6.x内核上出现。
 
 ## 启用指纹
 
@@ -172,6 +175,8 @@ fprintd-enroll
 按照终端里的提示，多次将你的右手食指（默认）按在指纹识别器上。如果出现 `Enroll result: enroll-completed` 就说明成功了。
 
 *提示：在桌面环境中，你现在也可以直接打开 **GNOME 设置 -> 系统 -> 用户 -> 指纹登录**，在图形界面里录入，体验会更好。*
+
+注: 这个安装方式在libfprint更新后会需要重新编译，不过应该下次libfprint更新应该就会合并这个改动了所以不太需要担心
 
 ## 解决终端行高问题
 
