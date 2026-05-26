@@ -253,6 +253,8 @@ fc-cache -f -v
 
 ![成功设置80%充电限制](charginglimit.png)
 
+具体的wmi调用细节和设置脚本[已经在Github上开源，点此查看](https://github.com/Xecuss/mibookpro14-powerlimit)。
+
 > ⚠️ **<font color="red" size="5">免责声明</font>**
 > 
 > <font color="red">**本博客所述的 WMI 方案存在潜在风险。作者仅在 Xiaomi Book Pro 14 设备上进行过验证，其对其他笔记本电脑（包括相同型号）的适用性与安全性无法保证。使用者应自行评估相关风险。因参照本博客或使用相关脚本导致的任何硬件损坏、数据丢失或系统故障，作者不承担任何责任。请在充分了解风险后再决定是否继续操作。**</font>
